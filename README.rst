@@ -50,7 +50,7 @@ SkyWaterオープンソースPDKのドキュメントはこちらです <https:/
 Google、SkyWater、およびパートナー企業は、現在内部検証とテスト設計をおこなっており、これらの結果については公開を予定しています。製品設計に向けた準備ができ次第、製品バージョンのタグが付けられます。バージョン番号の詳細については、"`Versioning Information <docs/versioning.rst>`_"を参照してください。 PDKの今後の新しいリリースやその他の重要なニュースについて通知を受け取るには、`skywater-pdk-announce メーリングリスト <https://groups.google.com/forum/#!forum/skywater-pdk-announce>`_
 [`参加用リンク <https://groups.google.com/forum/#!forum/skywater-pdk-announce/join>`_]へ参加してください。
 
-既知の問題の詳細については、`Known Issues <docs/known_issues.rst>`_ セクションと、 the `SkyWater PDK GitHub issue list <https://github.com/google/skywater-pdk/issues>`_ を参照してください。
+既知の問題の詳細については、`Known Issues <docs/known_issues.rst>`_ セクションと、 `SkyWater PDK GitHub issue list <https://github.com/google/skywater-pdk/issues>`_ を参照してください。
 
 SKY130プロセスノード
 ===================
@@ -69,12 +69,12 @@ SKY130プロセスノードのテクノロジスタックは、下記のよう�
 * 10V電源をサポート
 * 高耐圧拡張ドレインNMOS, PMOS
 
-`SKY130 Process Node`_ は、非常に柔軟であり、標準で多くの *オプション* 機能（ローカルインタコネクト、SONOSセル、MIMキャパシタ等々）を含みます。これにより設計者は **広い範囲** の柔軟な設計選択が可能になります。必要とするものが `SKY130 Process Node`_ に含まれる標準の機能を超える場合は、 `Contacting SkyWater`_ を参照してください。 `Nb, Ge, V2O5, カーボンナノチューブといった特殊素材の追加 <https://www.skywatertechnology.com/technology/>`_ のように、プロセスカスタマイズを専門としています。 GoogleとSkyWaterは、 `SkyWater Open Source PDK`_ および `SKY130 Process Node`_ へと追加する新たなオプションを模索し、従来の設計にまつわる問題に対して革新的なソリューションを提供可能にします。
+`SKY130プロセスノード`_ は、非常に柔軟であり、標準で多くの *オプション* 機能（ローカルインタコネクト、SONOSセル、MIMキャパシタ等々）を含みます。これにより設計者は **広い範囲** の柔軟な設計選択が可能になります。必要とするものが `SKY130プロセスノード`_ に含まれる標準の機能を超える場合は、 `SkyWaterへの問い合わせ`_ を検討してみてください。 `Nb, Ge, V2O5, カーボンナノチューブといった特殊素材の追加 <https://www.skywatertechnology.com/technology/>`_ に見られるように、プロセスカスタマイズを専門としています。 GoogleとSkyWaterは、 `SkyWaterオープンソースPDK`_ および `SKY130プロセスノード`_ へと追加する新たなオプションを模索し、従来の設計にまつわる問題に対して革新的なソリューションを提供可能にします。
 
 130nmプロセスノードの典型的な利用例
 -------------------------------------
 
-`130nmプロセス <https://en.wikichip.org/wiki/130_nm_lithography_process>`_ は2001年から2002年にかけて最初に商用化され、現在は主に研究、小型マイクロコントローラ開発、およびIoTデバイスのようなミックスドシグナルチップの開発に使用されています。最新のGoogleドキュメント <https://j.mp/si130nm> は、研究者や、営利団体、その他のグループが同様の **サイズ** のプロセスノードで行った事例から **雰囲気(原文ではinspiration)** を提供するために作成されています。製造プロセスや材料が異なるため、 `130nmプロセス設計の雰囲気ドキュメント <https://j.mp/si130nm>` に見られるのと全く同じ結果が `SKY130 Process Node`_ でも再現できるとは限らないことに注意してください。
+`130nmプロセス <https://en.wikichip.org/wiki/130_nm_lithography_process>`_ は2001年から2002年にかけて最初に商用化され、現在は主に研究、小型マイクロコントローラ開発、およびIoTデバイスのようなミックスドシグナルチップの開発に使用されています。最新のGoogleドキュメント <https://j.mp/si130nm> は、研究者や、営利団体、その他のグループが同様の **サイズ** のプロセスノードで行った事例から **雰囲気(原文ではinspiration)** を提供するために作成されています。製造プロセスや材料が異なるため、 `130nmプロセス設計の雰囲気ドキュメント <https://j.mp/si130nm>` に見られるのと全く同じ結果が `SKY130プロセスノード`_ でも再現できるとは限らないことに注意してください。
 
 PDKの内容
 ============
@@ -106,7 +106,7 @@ SkyWaterオープンソースPDKは、さまざまなタイプのASIC作成を�
 
 多くのオープンソースプロジェクトと同様に、SkyWaterオープンソースPDKでサポートを受ける方法は複数あります。
 
-SkyWaterは、チップ設計からパッケージングおよびテストまでのサポートを提供できるように、マーケットパートナーエコシステムを作成しました。 ASIC開発プロセスにおいて追加のサポートを受けることに興味がある場合は、下の　`Contacting SkyWater`_　セクションの情報を使用してSkyWaterにお問い合わせください。
+SkyWaterは、チップ設計からパッケージングおよびテストまでのサポートを提供できるように、マーケットパートナーエコシステムを作成しました。 ASIC開発プロセスにおいて追加のサポートを受けることに興味がある場合は、下の　`SkyWaterへの問い合わせ`_　セクションの情報を使用してSkyWaterにお問い合わせください。
 
 `ユーザメーリングリスト <https://groups.google.com/forum/#!forum/skywater-pdk-users>`_ [`参加リンク <https://groups.google.com/forum/#!forum/skywater-pdk-users/join>`_] を利用することで、ユーザ同士が相互にサポートを提供できます。
 
