@@ -1,4 +1,6 @@
-SkyWater Open Source PDK
+下記はfolk元のREADME.rstを日本語訳したものです。正確な記述は本家リポジトリをご参照ください。
+
+SkyWaterオープンソースPDK
 ========================
 
 .. image:: https://img.shields.io/github/license/google/skywater-pdk
@@ -21,11 +23,11 @@ SkyWater Open Source PDK
    :alt: GitHub commits since latest release (v0.0.0)
    :target: https://gitHub.com/google/skywater-pdk/commit/
 
-The SkyWater Open Source PDK is a collaboration between Google and SkyWater Technology Foundry to provide a fully open source `Process Design Kit <https://en.wikipedia.org/wiki/Process_design_kit>`_ and related resources, which can be used to create manufacturable designs at SkyWater’s facility.
+SkyWaterオープンソースPDKは、GoogleとSkyWater Technology Foundryの共同企画であり、完全オープンソースの `Process Design Kit <https://en.wikipedia.org/wiki/Process_design_kit>`_ とその関連リソースを提供しています。これらを用いることで、SkyWaterの施設で製造可能なチップ設計データを作成することができます。
 
-As of May 2020, this repository is targeting the SKY130 process node. If the SKY130 process node release is successful then in the future more advanced technology nodes may become available.
+2020年5月の時点で、このリポジトリはSKY130プロセスノードをターゲットにしています。 SKY130プロセスノードの成功次第では、将来的に、より高度なテクノロジノードが利用可能となるかもしれません。 
 
-The SkyWater Open Source PDK documentation can be found at <https://skywater-pdk.rtfd.io>.
+SkyWaterオープンソースPDKのドキュメントはこちらです <https://skywater-pdk.rtfd.io>。
 
 .. image:: docs/_static/skywater-pdk-logo.png
    :alt: Google + SkyWater Logo Image
@@ -33,108 +35,93 @@ The SkyWater Open Source PDK documentation can be found at <https://skywater-pdk
    :target: https://github.com/google/skywater-pdk
    :width: 80%
 
-.. |current-status| replace:: **Experimental Preview**
+.. |current-status| replace:: **実験的プレビュー(Experimental Preview)**
 
 .. include:: common.inc
 
-Current Status -- |current-status|
+現在の状態 -- |current-status|
 ==================================
 
 .. current_status_text
 
-*Warning*
-   Google and SkyWater are currently treating the current content as an **experimental preview** / **alpha release**.
+*注意*
+   GoogleとSkyWaterは現在、現在のコンテンツを **実験的プレビュー(Experimental Preview)**/**アルファリリース(alpha release)** として扱っています。このオープンソースリリースの元となったSKY130プロセスノードとPDKは、多くの商用チップ設計に利用されています。しかしこのオープンソースPDKについては、現時点では製品設計への利用を意図したものではありません。テストチップや初期設計検証には利用可能と思われます（ただし、保証はされません）。
 
-While the SKY130 process node and the PDK from which this open source release was derived have been used to create many designs that have been successfully manufactured commercially in significant quantities, the open source PDK is not intended to be used for production settings at this current time. It *should* be usable for doing test chips and initial design verification (but this is not guaranteed).
+Google、SkyWater、およびパートナー企業は、現在内部検証とテスト設計をおこなっており、これらの結果については公開を予定しています。製品設計に向けた準備ができ次第、製品バージョンのタグが付けられます。バージョン番号の詳細については、"`Versioning Information <docs/versioning.rst>`_"を参照してください。 PDKの今後の新しいリリースやその他の重要なニュースについて通知を受け取るには、`skywater-pdk-announce メーリングリスト <https://groups.google.com/forum/#!forum/skywater-pdk-announce>`_
+[`参加用リンク <https://groups.google.com/forum/#!forum/skywater-pdk-announce/join>`_]へ参加してください。
 
-Google, SkyWater and our partners are currently doing internal validation and test designs, including silicon validation or the released data and plan to publish these results.
+既知の問題の詳細については、`Known Issues <docs/known_issues.rst>`_ セクションと、 the `SkyWater PDK GitHub issue list <https://github.com/google/skywater-pdk/issues>`_ を参照してください。
 
-The PDK will be tagged with a production version when ready to do production design, see the "`Versioning Information <docs/versioning.rst>`_" section for a full description of the version numbering scheme.
-
-To get notified about future new releases of the PDK, and other important news, please sign up on the
-`skywater-pdk-announce mailing list <https://groups.google.com/forum/#!forum/skywater-pdk-announce>`_
-[`join link <https://groups.google.com/forum/#!forum/skywater-pdk-announce/join>`_].
-
-See both the `Known Issues <docs/known_issues.rst>`_ section and the `SkyWater PDK GitHub issue list <https://github.com/google/skywater-pdk/issues>`_ to get more detailed information around currently known issues.
-
-SKY130 Process Node
+SKY130プロセスノード
 ===================
 
-The SKY130 is a mature 180nm-130nm hybrid technology originally developed internally by Cypress Semiconductor before being spun out into SkyWater Technology and made accessible to general industry. SkyWater and Google’s collaboration is now making this technology accessible to everyone!
+SKY130は、当初サイプレスセミコンダクタによって内部的に開発され、その後SkyWaterへと渡ったのち外部から利用可能になりました。成熟した180nm-130nmのハイブリッドテクノロジとなっています。 SkyWaterとGoogleのコラボレーションにより、誰もがこのテクノロジを利用可能になりました！
 
-The SKY130 Process node technology stack consists of;
+SKY130プロセスノードのテクノロジスタックは、下記のような要素から構成されます。
 
-* Support for internal 1.8V with 5.0V I/Os (operable at 2.5V)
-* 1 level of local interconnect
-* 5 levels of metal
-* Is inductor-capable
-* Has high sheet rho poly resistor
-* Optional MiM capacitors
-* Includes SONOS shrunken cell
-* Supports 10V regulated supply
-* HV extended-drain NMOS and PMOS
+* 内部電圧 1.8V、I/O電圧 5.0V (2.5Vで動作可能)
+* 1層ローカルインタコネクト
+* 5層メタル配線
+* インダクタ
+* 高抵抗ポリシリコン抵抗
+* MIMキャパシタ（オプション）
+* SONOSセル
+* 10V電源をサポート
+* 高耐圧拡張ドレインNMOS, PMOS
 
+`SKY130 Process Node`_ は、非常に柔軟であり、標準で多くの *オプション* 機能（ローカルインタコネクト、SONOSセル、MIMキャパシタ等々）を含みます。これにより設計者は **広い範囲** の柔軟な設計選択が可能になります。必要とするものが `SKY130 Process Node`_ に含まれる標準の機能を超える場合は、 `Contacting SkyWater`_ を参照してください。 `Nb, Ge, V2O5, カーボンナノチューブといった特殊素材の追加 <https://www.skywatertechnology.com/technology/>`_ のように、プロセスカスタマイズを専門としています。 GoogleとSkyWaterは、 `SkyWater Open Source PDK`_ および `SKY130 Process Node`_ へと追加する新たなオプションを模索し、従来の設計にまつわる問題に対して革新的なソリューションを提供可能にします。
 
-The `SKY130 Process Node`_ is an extremely flexible offering, including many normally *optional* features as standard (features like the local interconnect, SONOS functionality, MiM capacitors, and more). This provides the designer with a **wide range** of flexibility in design choices.
-
-If your needs extend beyond the standard included functionality in the `SKY130 Process Node`_, please see `Contacting SkyWater`_ as they specializes in enabling production volume of process customization include `the addition of specialized materials like Nb, Ge, V2O5, Carbon Nanotubes <https://www.skywatertechnology.com/technology/>`_. Google and SkyWater continuing to explore new options to be included in the `SkyWater Open Source PDK`_ and `SKY130 Process Node`_ that enable new innovative solutions to traditional design problems.
-
-
-Typical usages of 130nm Process Nodes
+130nmプロセスノードの典型的な利用例
 -------------------------------------
 
-The `130nm process <https://en.wikichip.org/wiki/130_nm_lithography_process>`_ was first commercialized around the 2001-2002 time frame and is now primarily used in the area of research, small microcontroller development, and mixed signal embedded designs such as IoT devices.
+`130nmプロセス <https://en.wikichip.org/wiki/130_nm_lithography_process>`_ は2001年から2002年にかけて最初に商用化され、現在は主に研究、小型マイクロコントローラ開発、およびIoTデバイスのようなミックスドシグナルチップの開発に使用されています。最新のGoogleドキュメント <https://j.mp/si130nm> は、研究者や、営利団体、その他のグループが同様の **サイズ** のプロセスノードで行った事例から **雰囲気(原文ではinspiration)** を提供するために作成されています。製造プロセスや材料が異なるため、 `130nmプロセス設計の雰囲気ドキュメント <https://j.mp/si130nm>` に見られるのと全く同じ結果が `SKY130 Process Node`_ でも再現できるとは限らないことに注意してください。
 
-A living Google document at <https://j.mp/si130nm> has been created to provide **inspiration** from what researchers, commercial entities and other groups have done with similar **sized** process nodes. As there are widely different constraints and possibilities from changes in both the manufacturing process and materials it is important **not** to assumed that the exact results found in the `130nm inspiration document <https://j.mp/si130nm>`_ can be identically reproduced on the `SKY130 Process Node`_.
-
-
-PDK Contents
+PDKの内容
 ============
 
-The SkyWater Open Source PDK contains;
+SkyWaterオープンソースPDKは下記のような内容を含みます。
 
-* Comprehensive documentation around the design rules required to create manufacturable devices on the SKY130 Process Node.
-* EDA tooling support files for multiple open source and proprietary design flows.
-* Primitive cell libraries and models for creating analog designs.
-* **Multiple** standard digital cell libraries covering a range of different use cases.
-* **Multiple** documented examples of using the PDK (see below).
+* SKY130プロセスノードで製造可能なデバイスを作成するための設計ルールに関するドキュメント。
+* 複数のオープンソースおよびプロプライエタリな設計フローに向けたEDAツールサポートファイル。
+* アナログ回路設計のためのプリミティブセルライブラリとモデル。
+* **複数の** 標準デジタルセルライブラリ。
+* **複数の** PDK使用例（以下を参照）。
 
-For more information see the `PDK Contents section of the SkyWater SKY130 PDK <https://skywater-pdk.rtfd.io>`_.
+詳細については `PDK Contents section of the SkyWater SKY130 PDK <https://skywater-pdk.rtfd.io>`_ を参照してください。
 
-Using the SkyWater Open Source PDK
+SkyWaterオープンソースPDKを使ってみる
 ==================================
 
-The SkyWater Open Source PDK aims to contain comprehensive documentation about using the design kit with multiple tools and design flows to enable many different types of ASIC creation.
+SkyWaterオープンソースPDKは、さまざまなタイプのASIC作成を可能にするため、複数のツールと設計フローでのPDK使用例に関するドキュメントを含んでいます。
 
-* `[TODO #11] <https://github.com/google/skywater-pdk/issues/11>`_ - Examples of using the `PDK for digital design <https://skywater-pdk.rtfd.io>`_.
-* `[TODO #14] <https://github.com/google/skywater-pdk/issues/14>`_ - Example of using the PDK to `create a RISC-V SoC design using the OpenROAD ASIC tool flow <https://skywater-pdk.rtfd.io>`_.
-* `[TODO #12] <https://github.com/google/skywater-pdk/issues/12>`_ - Examples of using the PDK for `analog design <https://skywater-pdk.rtfd.io>`_.
-* `[TODO #13] <https://github.com/google/skywater-pdk/issues/13>`_ - Examples of using the PDK with `analog generators <https://skywater-pdk.rtfd.io>`_ like `FASoC <https://fasoc.engin.umich.edu/>`_ and `Berkeley Analog Generator (BAG) <https://github.com/bluecheetah/bag>`_.
+* `[TODO #11] <https://github.com/google/skywater-pdk/issues/11>`_ - `デジタル回路設計例 <https://skywater-pdk.rtfd.io>`_.
+* `[TODO #14] <https://github.com/google/skywater-pdk/issues/14>`_ - `OpenROAD ASICツールフローによるRISC-V SoCの設計例 <https://skywater-pdk.rtfd.io>`_.
+* `[TODO #12] <https://github.com/google/skywater-pdk/issues/12>`_ - `アナログ回路設計例 <https://skywater-pdk.rtfd.io>`_.
+* `[TODO #13] <https://github.com/google/skywater-pdk/issues/13>`_ - `アナログ回路ジェネレータの活用例 <https://skywater-pdk.rtfd.io>`_ `FASoC <https://fasoc.engin.umich.edu/>`_ や `Berkeley Analog Generator (BAG) <https://github.com/bluecheetah/bag>`_.
 
-We are excited to see additions to this documentation around using this design kit with new tools and design flows. Please see the `Contributing file <docs/contributing.rst>`_ for information on how to do this.
+私たちは、新たなツールや設計フローにおけるPDK使用例を楽しみにしています。追加を行う方法については、 `Contributing file <docs/contributing.rst>`_ を参照してください。
 
-Support
+サポート
 =======
 
-Like many open source projects there are multiple ways to get support on the SkyWater Open Source PDK.
+多くのオープンソースプロジェクトと同様に、SkyWaterオープンソースPDKでサポートを受ける方法は複数あります。
 
-SkyWater has created a Market Partner Ecosystem to be able to provide support from design through back end package and test.  If you are interested in getting additional support through the ASIC development process, reach out to SkyWater using the information in the `Contacting SkyWater`_ section below.
+SkyWaterは、チップ設計からパッケージングおよびテストまでのサポートを提供できるように、マーケットパートナーエコシステムを作成しました。 ASIC開発プロセスにおいて追加のサポートを受けることに興味がある場合は、下の　`Contacting SkyWater`_　セクションの情報を使用してSkyWaterにお問い合わせください。
 
-There is also a `users mailing list  <https://groups.google.com/forum/#!forum/skywater-pdk-users>`_ [`join link <https://groups.google.com/forum/#!forum/skywater-pdk-users/join>`_] to allow like minded users of the PDK to provide support to each other.
+`ユーザメーリングリスト <https://groups.google.com/forum/#!forum/skywater-pdk-users>`_ [`参加リンク <https://groups.google.com/forum/#!forum/skywater-pdk-users/join>`_] を利用することで、ユーザ同士が相互にサポートを提供できます。
 
-Google does not provide external support for using the SkyWater Open Source PDK and is distributing this repository on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the license_ section for the full terms.
+Googleは、SkyWaterオープンソースPDKを使用するためのサポートを提供せず、このリポジトリを「現状有姿」で配布します。明示の有無に関わらず、いかなる保証も規約もありません。規約の全文については、 license_ セクションを参照してください。
 
-
-About SkyWater Technology Foundry
+SkyWater Technology Foundryについて
 =================================
 
 SkyWater is a solely U.S.-based and U.S.-owned, DoD-accredited, Trusted Foundry. Through its Technology Foundry model, SkyWater provides custom design and development services, design IP, and volume manufacturing for integrated circuits and micro devices. The Company’s world-class operations and unique processing capabilities enable mixed-signal CMOS, power, rad-hard and ROIC solutions. SkyWater’s Innovation Engineering Services empower development of superconducting and 3D ICs, along with carbon nanotube, photonic and MEMS devices. SkyWater serves customers in growing markets such as aerospace & defense, automotive, cloud & computing, consumer, industrial, IoT and medical. For more information, please visit: www.skywatertechnology.com/.
 
 SkyWater is building from a long heritage in the microelectronics industry. The SkyWater facility was originally established by Minnesota based Control Data Corporation (CDC) in the 1980s. The CDC fab was acquired by Cypress Semiconductor in 1991. During the Cypress era, the facility was expanded and upgraded multiple times, keeping pace with Moore's Law into the late 2000s and was known for being a US-based production facility that was competitive with Asian-based fabs. SkyWater spun-off from Cypress in 2017 with private equity backing from Minnesota based Oxbow Industries.
 
-Contacting SkyWater
+SkyWaterへの問い合わせ
 -------------------
-Requests for more information about SKY130 and other standard and customer foundry technologies can be emailed to <swfoundry@skywatertechnology.com> or `submitted via this webform <https://www.skywatertechnology.com/contact/>`_.
+SKY130やその他のテクノロジについての詳細な情報の問い合わせに関しては <swfoundry@skywatertechnology.com> へのメールや、 `Webフォームからの投稿 <https://www.skywatertechnology.com/contact/>`_ が利用可能です。
 
 
 License
