@@ -94,10 +94,10 @@ SkyWaterオープンソースPDKを使ってみる
 
 SkyWaterオープンソースPDKは、さまざまなタイプのASIC作成を可能にするため、複数のツールと設計フローでのPDK使用例に関するドキュメントを含んでいます。
 
-* `[TODO #11] <https://github.com/google/skywater-pdk/issues/11>`_ - `デジタル回路設計例 <https://skywater-pdk.rtfd.io>`_.
-* `[TODO #14] <https://github.com/google/skywater-pdk/issues/14>`_ - `OpenROAD ASICツールフローによるRISC-V SoCの設計例 <https://skywater-pdk.rtfd.io>`_.
-* `[TODO #12] <https://github.com/google/skywater-pdk/issues/12>`_ - `アナログ回路設計例 <https://skywater-pdk.rtfd.io>`_.
-* `[TODO #13] <https://github.com/google/skywater-pdk/issues/13>`_ - `アナログ回路ジェネレータの活用例 <https://skywater-pdk.rtfd.io>`_ `FASoC <https://fasoc.engin.umich.edu/>`_ や `Berkeley Analog Generator (BAG) <https://github.com/bluecheetah/bag>`_.
+* `[TODO #11] <https://github.com/google/skywater-pdk/issues/11>`_ - デジタル回路設計例
+* `[TODO #14] <https://github.com/google/skywater-pdk/issues/14>`_ - OpenROAD ASICツールフローによるRISC-V SoCの設計例
+* `[TODO #12] <https://github.com/google/skywater-pdk/issues/12>`_ - アナログ回路設計例
+* `[TODO #13] <https://github.com/google/skywater-pdk/issues/13>`_ - `FASoC <https://fasoc.engin.umich.edu/>`_ や `Berkeley Analog Generator (BAG) <https://github.com/bluecheetah/bag>`_ といったアナログ回路ジェネレータの活用例
 
 私たちは、新たなツールや設計フローにおけるPDK使用例を楽しみにしています。追加を行う方法については、 `Contributing file <docs/contributing.rst>`_ を参照してください。
 
